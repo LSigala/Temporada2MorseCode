@@ -41,18 +41,21 @@ export default function Home() {
       '-..-': 'X',
       '-.--': 'Y',
       '--..': 'Z',
-      '...---...': 'SOS'
+      '...---...': 'SOS',
+      '-.-.--': '!',
+      '.-.-.-': '.'
   };
-  let counter = 0;
 
-  for(const item of codeSeparated){
+  for(let i = 0; i < codeSeparated.length; i++){
     const space = " ";
-    if(item){
-      decodedMessage.push(MorseCodes[item])
+    console.log("next",codeSeparated[i + 1]);
+    console.log("current",codeSeparated[i]);
+    
+    if(codeSeparated[i]){
+      decodedMessage.push(MorseCodes[codeSeparated[i]])
     }
 
-    if (!item && counter == 0 && codeSeparated.length != 0) {
-      counter++
+    if (!codeSeparated[i] && !codeSeparated[i + 1]) {
       decodedMessage.push(space)
     }
     
